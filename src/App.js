@@ -4,6 +4,7 @@ import Header from './Header.js';
 import Header2 from './Header.js';
 //lo useEffect scandisce il ciclo di vita di un componente e dei suoi stati
 import { useState, useEffect } from 'react'; //--> Hooks
+import Form from './Form';
 
 
 
@@ -98,6 +99,7 @@ function App() {
           Aggiungi nome </button>}
 
 
+        <Form />
 
 
 
