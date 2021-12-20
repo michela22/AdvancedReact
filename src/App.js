@@ -5,6 +5,8 @@ import Header2 from './Header.js';
 //lo useEffect scandisce il ciclo di vita di un componente e dei suoi stati
 import { useState, useEffect } from 'react'; //--> Hooks
 import Form from './Form';
+//gestione chiamate asincrone al server
+import axios from 'axios';
 
 
 
@@ -18,6 +20,15 @@ function App() {
   const [currentName, setCurrenteName] = useState();
 
 
+  useEffect(() => {
+    //mi appendo alla risopsta col .then()
+    axios.get("https://polar-spire-39953.herokuapp.com/items").then((response)=>{
+      console.info(response.data)
+    }).catch((err) =>{
+      console.info(err)
+    })
+  
+  }, [])
 
   //esempio voglio tener traccia di tutte le volte che name cambia stato
   //useEffect mi da sempre una callback se varia lo stato di una variabile definite mediante lo useState

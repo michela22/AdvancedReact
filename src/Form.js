@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 function Form(){
     /*
@@ -8,19 +9,42 @@ function Form(){
     */
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+    
+    
 
-    const submit = (data) =>{
+   /* const submit = (data) =>{
         console.info(data)
+
+    }*/
+    const submit2 = (data) =>{
+        console.info(data)
+        axios.post("https://polar-spire-39953.herokuapp.com/items", data).then(response =>{
+            console.info(response.data)
+        })
 
     }
 
     return(
-        <form onSubmit={handleSubmit(submit)}>
+        <>
+       {/* <form onSubmit={handleSubmit(submit)}>
             <input type="text" {... register('userName', {required: true})} />
             {errors.userName && 
             <span>Campo userName è required </span>}
             <button type="submit">Invia</button>
         </form>
+         */}
+
+        <form onSubmit={handleSubmit(submit2)}>
+        <input type="text" placeholder=" Produttore" {... register('produttore', {required: true})} />
+        <input type="text" placeholder="nome "{... register('nome', {required: true})} />
+       
+        <button type="submit2">Invia Dati</button>
+        </form>
+        </>
+
+
+        
+
     );
 
 }
