@@ -10,6 +10,8 @@ import axios from 'axios';
 
 
 
+
+
 function App() {
   //come dichiaro la variabile se uso lo useState
   //dico come si chi8ama la variabile è il metodo di set che ne muta il valore
@@ -42,14 +44,25 @@ function App() {
 
   //quando passo name da comp padrfe a figlio non gli sto passando solo il valore al tempo 0 ma gli sto passando lo STATO, quindi le variazioni di stato si propagano anche sul figlio.
 
+
+    {/*  io posso passare un intero metodo da un padre a un figlio */}
+    const parentMethod= (stringa) => {
+      alert(stringa)
+    }
+
+
   return (
     <div className="App">
+     
+     
+
+
       { /*pongo name uguale allo STATO di name presente dentro la componente App*/}
-      <Header name={name} />
+       {/*  io posso passare un intero metodo da un padre a un figlio */}
+      <Header  childMethod={parentMethod} name={name} />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          <Header2 name={name} />
           ciao {name}
         </p>
         {/* devo tener traccia della variazione di stato altrimenti non funziona e
@@ -112,6 +125,7 @@ function App() {
 
         <Form />
 
+        
 
 
 
